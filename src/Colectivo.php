@@ -7,8 +7,15 @@ class Colectivo{
         $this->linea = $linea;
     }
     
-    //    Funcion de ejemplo para test
     public function getLinea(){
         return $this->linea;
     }
+
+    public function pagar($tarjeta){
+        $puedePagar = $tarjeta->cobrarBoleto();
+        if($puedePagar){
+          new Boleto(120, $tarjeta->saldo);
+        }
+        return $puedePagar;
+      }
 }
