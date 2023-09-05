@@ -1,5 +1,7 @@
 <?php
+
 namespace TrabajoSube;
+
 class Tarjeta{
     protected $id;
     public $saldo;
