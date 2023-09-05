@@ -10,4 +10,5 @@ class ColectivoTest extends TestCase{
         $cole = new Colectivo(103);
         $this->assertEquals($cole->getLinea(), 103);
     }
+    
 }
