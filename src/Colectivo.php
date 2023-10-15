@@ -3,6 +3,11 @@ namespace TrabajoSube;
 
 class Colectivo{
     protected $linea;
+    public $tarifa;
+    
+    public function __construct($tarifa){
+        $this->tarifa = $tarifa;
+    }
     
     public function __construct($linea){
         $this->linea = $linea;

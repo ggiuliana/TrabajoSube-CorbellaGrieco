@@ -1,11 +1,9 @@
 <?php
 namespace TrabajoSube;
 class Boleto{
-    public $tarifa;
     public $saldo;
     
-    public function __construct($tarifa, $saldo ){
-        $this->tarifa = $tarifa;
+    public function __construct($saldo ){
         $this->saldo = $saldo;
     }
 }
