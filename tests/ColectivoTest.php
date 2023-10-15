@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 class ColectivoTest extends TestCase{
 
     public function test(){
-        $cole = new Colectivo(103);
+        $cole = new Colectivo(120, 103);
         $this->assertEquals($cole->getLinea(), 103);
     }
     
