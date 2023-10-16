@@ -7,7 +7,7 @@ class BoletoTest extends TestCase{
     public function testBoletoNormal() {
         $tarjeta = new Tarjeta(120);
         $colectivo = new Colectivo(128);
-        $boleto = pagarCon($tarjeta);
+        $boleto = $colectivo->pagarCon($tarjeta);
 
         $this->assertEquals($boleto->getTipo(), "normal");
     }
