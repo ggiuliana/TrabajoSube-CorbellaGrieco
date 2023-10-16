@@ -47,4 +47,25 @@ class TarjetaTest extends TestCase{
         $boleto = $cole->pagarCon($tarjeta);
         $this->assertEquals(6600,$tarjeta->saldo);
     }
+
+    public function testSinDescuento(){
+        $tarjeta = new Tarjeta(200);
+        $tarjeta->viajes=2;
+        $tarjeta->cobrarBoleto();
+        $this->assertEquals(80, $tarjeta->saldo);
+    }
+
+    public function test20DeDescuento(){
+        $tarjeta = new Tarjeta(200);
+        $tarjeta->viajes=35;
+        $tarjeta->cobrarBoleto();
+        $this->assertEquals(104, $tarjeta->saldo);
+    }
+
+    public function test25DeDescuento(){
+        $tarjeta = new Tarjeta(200);
+        $tarjeta->viajes=90;
+        $tarjeta->cobrarBoleto();
+        $this->assertEquals(110, $tarjeta->saldo);
+    }
 }
