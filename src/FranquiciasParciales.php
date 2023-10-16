@@ -8,7 +8,6 @@ class FranquiciasParciales extends Tarjeta{
     public $boletosDiarios = 4; 
 
     function __construct($saldo = 0, $id =0){
-    //parent::__construct($saldo = 0, $id =0);
     $this->ultimoBoleto = time()-300;
     }
 
@@ -16,7 +15,6 @@ class FranquiciasParciales extends Tarjeta{
     public function cobrarBoleto(){
         if ((($this->saldo-$this->tarifa) >= -211.84) && (time()-$this->ultimoBoleto >= 300)){
             if(date("d/m/Y", $this->ultimoBoleto) == date("d/m/Y")){
-
                 if($this->boletosDiarios>0){
                     $this->saldo-=$this->tarifa;
                     $this->ultimoBoleto = time();   
@@ -37,11 +35,9 @@ class FranquiciasParciales extends Tarjeta{
 
             }
         }
-
             else {
                 print 'No es posible realizar el pago';
                 return false;
-            }
-    
+            }    
     }
 }
