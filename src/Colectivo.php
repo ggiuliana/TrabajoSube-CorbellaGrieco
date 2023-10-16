@@ -13,11 +13,13 @@ class Colectivo{
         return $this->linea;
     }
 
-    public function pagar($tarjeta){
-        $puedePagar = $tarjeta->cobrarBoleto();
-        if($puedePagar){
+    public function pagarCon($tarjeta){
+        if($tarjeta->cobrarBoleto()){
           $boleto = new Boleto($tarjeta->tipo, $this->linea, $tarjeta->tarifa, $tarjeta->saldo, $tarjeta->id);
+          $boleto->ponerDescripcion();
+          return $boleto;
+        } else {
+          return False;
         }
-        return $puedePagar;
       }
 }
