@@ -12,36 +12,38 @@ class FranquiciasParciales extends Tarjeta{
     $this->ultimoBoleto = time()-300;
     }
 
-    
     public function cobrarBoleto(){
-        if ((($this->saldo-$this->tarifa) >= -211.84) && (time()-$this->ultimoBoleto >= 300)){
+        if ($this->boletosDiarios>0){
             if(date("d/m/Y", $this->ultimoBoleto) == date("d/m/Y")){
-
-                if($this->boletosDiarios>0){
+                if ((($this->saldo-$this->tarifa) >= -211.84) && time()-$this->ultimoBoleto >= 300){
                     $this->saldo-=$this->tarifa;
                     $this->ultimoBoleto = time();   
-                    $this->boletosDiarios-=1;
+                    $this->boletosDiarios-=1;                
                     return true;
-                }
-                else{
-                    $this->saldo-=$this->tarifa*2;
-                    $this->ultimoBoleto = time();   
-                    return true;
-                }
+                } else {
+                    print 'No es posible realizar el pago';
+                    return false;
+                } 
             }
             else{
-                $this->boletosDiarios = 3;
-                $this->saldo-=$this->tarifa;
-                $this->ultimoBoleto = time();
-                return true;
-
+                if ((($this->saldo-$this->tarifa) >= -211.84)){
+                    $this->boletosDiarios = 3;
+                    $this->saldo-=$this->tarifa;
+                    $this->ultimoBoleto = time();
+                    return true;
+                }else {
+                    print 'No es posible realizar el pago';
+                    return false;
+                }  
             }
         }
-
-            else {
+        else if ($this->saldo-$this->tarifa * 2 >= 211.84) {
+                $this->saldo-=$this->tarifa * 2;
+                $this->ultimoBoleto = time();   
+                return true;
+            }else {
                 print 'No es posible realizar el pago';
                 return false;
-            }
-    
-    }
+            }  
+    }         
 }
