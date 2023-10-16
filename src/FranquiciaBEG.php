@@ -30,6 +30,6 @@ class FranquiciaBEG extends FranquiciasCompletas{
         } else {
                 print 'No es posible realizar el pago';
                 return false;
-            } 
+            }
     }
 }
