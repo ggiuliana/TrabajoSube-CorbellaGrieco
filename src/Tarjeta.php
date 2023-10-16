@@ -20,7 +20,7 @@ class Tarjeta{
     }
 
     public function cobrarBoleto(){
-        if ($this->saldo >= 120){
+        if (($this->saldo-120) >= -211.84){
           $this->saldo-=120;    
           return true;
         }
