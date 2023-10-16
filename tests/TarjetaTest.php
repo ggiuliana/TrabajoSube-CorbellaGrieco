@@ -26,4 +26,10 @@ class TarjetaTest extends TestCase{
         $this->assertFalse($tarjeta->cobrarBoleto());
         $this->assertEquals(-100, $tarjeta->saldo);
     }
+
+    public function testViajePlus(){
+        $tarjeta = new Tarjeta(20);
+        $this->assertTrue($tarjeta->cobrarBoleto());
+        $this->assertEquals(-100, $tarjeta->saldo);
+    }
 }
