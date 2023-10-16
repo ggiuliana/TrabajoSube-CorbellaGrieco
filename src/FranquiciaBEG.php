@@ -23,7 +23,7 @@ class FranquiciasCompletas extends FranquiciasCompletas{
                 return true;
             }
         }
-        else if ($this->saldo-120 >= 211.84) {
+        else if ($this->saldo-120 >= -211.84) {
                 $this->saldo-=120;
                 $this->ultimoBoleto = time();   
                 return true;
