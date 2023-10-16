@@ -14,4 +14,16 @@ class TarjetaTest extends TestCase{
         $this->assertEquals($monto, $tarjeta->saldo);
         }   
     }
+
+    public function testCobrarBoletoConSaldo(){
+        $tarjeta = new Tarjeta(200);
+        $this->assertTrue($tarjeta->cobrarBoleto());
+        $this->assertEquals(80, $tarjeta->saldo);
+    }
+
+    public function testCobrarBoletoSinSaldo() {
+        $tarjeta = new Tarjeta(100);
+        $this->assertFalse($tarjeta->cobrarBoleto());
+        $this->assertEquals(100, $tarjeta->saldo);
+    }
 }
