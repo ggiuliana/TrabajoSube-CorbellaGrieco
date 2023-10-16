@@ -14,9 +14,8 @@ class FranquiciasParcialesTest extends TestCase{
 
     public function testPuedePagarConViajePlus(){
         $tarjeta = new FranquiciasParciales();
-        $tarjeta->cargarTarjeta(20);
         $this->assertTrue($tarjeta->cobrarBoleto());
-        $this->assertEquals(-40, $tarjeta->saldo);
+        $this->assertEquals(-60, $tarjeta->saldo);
     }
     public function testNoViaja5Minutos(){
         $tarjeta = new FranquiciasParciales();
