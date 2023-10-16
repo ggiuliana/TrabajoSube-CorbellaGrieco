@@ -15,7 +15,7 @@ class FranquiciasParciales extends Tarjeta{
     
     public function cobrarBoleto(){
         if ((($this->saldo-$this->tarifa) >= -211.84) && (time()-$this->ultimoBoleto >= 300)){
-            if(date(d/m/Y, $this->ultimoBoleto) == date(d/m/Y)){
+            if(date("d/m/Y", $this->ultimoBoleto) == date("d/m/Y")){
 
                 if($this->boletosDiarios>0){
                     $this->saldo-=$this->tarifa;
