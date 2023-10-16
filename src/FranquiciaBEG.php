@@ -33,3 +33,4 @@ class FranquiciaBEG extends FranquiciasCompletas{
             } 
     }
 }
+}
