@@ -16,7 +16,7 @@ class Colectivo{
     public function pagar($tarjeta){
         $puedePagar = $tarjeta->cobrarBoleto();
         if($puedePagar){
-          $boleto = new Boleto($tarjeta->saldo);
+          $boleto = new Boleto($tarjeta->tipo, $this->linea, $tarjeta->tarifa, $tarjeta->saldo, $tarjeta->id);
         }
         return $puedePagar;
       }

@@ -4,9 +4,12 @@ namespace TrabajoSube;
 class Tarjeta{
     public $saldo;
     public $tarifa = 120;
+    public $id;
+    public $tipo = "normal";
     
-    public function __construct($saldo = 0){
+    public function __construct($saldo = 0, $id =0){
         $this->saldo = $saldo;
+        $this->id = $id;
     }
 
     public function cargarTarjeta($monto){
