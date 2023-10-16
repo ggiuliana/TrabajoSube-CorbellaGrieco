@@ -7,6 +7,7 @@ class Boleto{
     public $abono;
     public $saldo;
     public $id;
+    public $descripcion;
     
     public function __construct($tipoTarjeta, $linea, $abono, $saldo, $id){
         $this->fecha = date("d/m/Y H:i:s");
@@ -34,5 +35,11 @@ class Boleto{
     public function getId(){
         return $this->id;
     }
-    
+    public function ponerDescripcion() {
+        if($this->saldo < 0){
+            $this->descripcion = "Abona saldo $" . $this->abono . ". (Saldo en negativo).";
+        } else {
+            $this->descripcion = "Abona saldo $" . $this->abono . ".";
+        }
+    }
 }
