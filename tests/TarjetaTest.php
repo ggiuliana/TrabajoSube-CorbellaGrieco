@@ -45,7 +45,7 @@ class TarjetaTest extends TestCase{
         $tarjeta = new Tarjeta(6500);
         $tarjeta->cargarTarjeta(600);
         $boleto = $cole->pagarCon($tarjeta);
-        assertEquals(6600,$tarjeta->saldo);
+        $this->assertEquals(6600,$tarjeta->saldo);
     }
 
     //Escribir un test que valide que luego de realizar un viaje, verifique si hay saldo
