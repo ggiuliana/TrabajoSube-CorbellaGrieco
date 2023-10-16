@@ -7,8 +7,8 @@ class FranquiciasParciales extends Tarjeta{
     public $ultimoBoleto;
     public $boletosDiarios = 4; 
 
-    function __construct(){
-    parent::__construct($saldo = 0, $id =0);
+    function __construct($saldo = 0, $id =0){
+    //parent::__construct($saldo = 0, $id =0);
     $this->ultimoBoleto = time()-300;
     }
 
