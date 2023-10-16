@@ -1,7 +1,7 @@
 <?php
 namespace TrabajoSube;
 
-class FranquiciasCompletas extends FranquiciasCompletas{
+class FranquiciaBEG extends FranquiciasCompletas{
     public $ultimoBoleto;
     public $boletosDiarios = 2;
 
