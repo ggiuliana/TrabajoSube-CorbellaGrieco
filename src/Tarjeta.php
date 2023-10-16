@@ -6,7 +6,7 @@ class Tarjeta{
     public $tarifa = 120;
     public $id;
     public $tipo = "normal";
-    public $saldoPendientes;
+    public $saldoPendiente;
     
     public function __construct($saldo = 0, $id =0){
         $this->saldo = $saldo;

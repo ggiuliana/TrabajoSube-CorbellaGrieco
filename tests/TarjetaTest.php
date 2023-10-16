@@ -32,4 +32,15 @@ class TarjetaTest extends TestCase{
         $this->assertTrue($tarjeta->cobrarBoleto());
         $this->assertEquals(-100, $tarjeta->saldo);
     }
+
+    public function testSaldoPendiente(){
+        $tarjeta = new Tarjeta(6500);
+        $tarjeta->cargarTarjeta(600);
+        $this->assertEquals(500, $tarjeta->saldoPendiente);
+        $this->assertEquals(6600, $tarjeta->saldo);
+    }
+
+    //Escribir un test que valide que si a una tarjeta se le carga un monto
+    //que supere el máximo permitido, se acredite el saldo hasta alcanzar el 
+    //máximo(6600) y que el excedente quede almacenado y pendiente de acreditación.
 }
