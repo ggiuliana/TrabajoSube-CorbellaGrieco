@@ -14,22 +14,20 @@ class FranquiciasParciales extends Tarjeta{
 
     
     public function cobrarBoleto(){
-        if ((($this->saldo-$this->tarifa) >= -211.84) && (time()-$this->ultimoBoleto >= 300)){
-            if($this->boletosDiarios>0){
-                $this->saldo-=$this->tarifa;
-                $this->ultimoBoleto = time();
-                $this->boletosDiarios--;    
-                return true;
-            }
-            else{
-                $this->saldo-=$this->tarifa*2;
-                $this->ultimoBoleto = time();
-                return true;
-            }
+        if ((($this->saldo-$this->tarifa) >= -211.84) && (time()-$this->ultimoBoleto >= 300) && (boletosDiarios>0)){
+            $this->saldo-=$this->tarifa;
+            $this->ultimoBoleto = time();
+            $this->boletosDiarios-=1;    
+            return true;
         }
-        else {
-            print 'Saldo insuficiente';
-            return false;
-        }
+        else if (boletosDiarios<=0){
+            $this->saldo-=$this->tarifa*2;
+            $this->ultimoBoleto = time();
+            return true;
+            }
+            else {
+                print 'Saldo insuficiente';
+                return false;
+                }
     }
 }
