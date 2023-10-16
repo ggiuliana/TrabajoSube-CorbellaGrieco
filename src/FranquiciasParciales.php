@@ -37,7 +37,7 @@ class FranquiciasParciales extends Tarjeta{
                 }  
             }
         }
-        else if ($this->saldo-$this->tarifa * 2 >= 211.84) {
+        else if ($this->saldo-$this->tarifa * 2 >= -211.84) {
                 $this->saldo-=$this->tarifa * 2;
                 $this->ultimoBoleto = time();   
                 return true;
