@@ -16,7 +16,7 @@ class Tarjeta{
         } 
         else {echo "El monto" . $monto . "no es valido para la recarga."; }
     }        
-    else {echo "El monto" . $monto . "supera el límite de salgo."; }
+    else {echo "El monto" . $monto . "supera el límite de saldo."; }
     }
 
     public function cobrarBoleto(){
