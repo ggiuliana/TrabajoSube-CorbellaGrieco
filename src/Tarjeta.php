@@ -33,51 +33,33 @@ class Tarjeta{
         }
     }
 
-    public function cobrarBoleto(){
-        if ($this->fechaUltimoBoleto==date("m/Y")){
-            if ($this->viajes<30){
-                if (($this->saldo-$this->tarifa) >= -211.84){
-                $this->saldo-=$this->tarifa;
-                $this->viajes+=1;
-                $this->fechaUltimoBoleto = date("m/Y");
-                return true;
-                } else {
-                    print 'Saldo insuficiente';
-                    return false;
-                }
-            } else {if ($this->viajes<80){
-                    if (($this->saldo-($this->tarifa * 0.8)) >= -211.84){
-                    $this->saldo-=$this->tarifa * 0.8;
-                    $this->viajes+=1;
-                    $this->fechaUltimoBoleto = date("m/Y");  
-                    return true;
-                    } else {
-                        print 'Saldo insuficiente';
-                        return false;
-                    }
-                } else {
-                    if (($this->saldo-($this->tarifa * 0.75)) >= -211.84){
-                        $this->saldo-=$this->tarifa * 0.75;
-                        $this->viajes+=1;
-                        $this->fechaUltimoBoleto = date("m/Y");   
-                        return true;
-                    } else {
-                        print 'Saldo insuficiente';
-                        return false;
-                    }
-                }
+    private function determinarTarifa() {
+        if ($this->fechaUltimoBoleto == date("m/Y")) {
+            if ($this->viajes < 30) {
+                return $this->tarifa;
+            } elseif ($this->viajes < 80) {
+                return $this->tarifa * 0.8;
+            } else {
+                return $this->tarifa * 0.75;
             }
-        } else {
-            if (($this->saldo-$this->tarifa) >= -211.84){
-                $this->saldo-=$this->tarifa;
-                $this->viajes=1;
-                $this->fechaUltimoBoleto = date("m/Y");   
+        }else{
+            $this->viajes = 0;
+            return $this->tarifa;
+        }
+    }
+    public function cobrarBoleto() {
+        $tarifa = $this->determinarTarifa();
+        if ($tarifa !== null) {
+            if ($this->saldo - $tarifa >= -211.84) {
+                $this->saldo -= $tarifa;
+                $this->viajes += 1;
+                $this->fechaUltimoBoleto = date("m/Y");
                 return true;
             } else {
                 print 'Saldo insuficiente';
-                $this->viajes=0;
                 return false;
             }
         }
-    } 
+        return false;
+    }
 }
