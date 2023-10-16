@@ -3,6 +3,7 @@ namespace TrabajoSube;
 
 class Tarjeta{
     public $saldo;
+    public $tarifa = 120;
     
     public function __construct($saldo = 0){
         $this->saldo = $saldo;
@@ -20,8 +21,8 @@ class Tarjeta{
     }
 
     public function cobrarBoleto(){
-        if (($this->saldo-120) >= -211.84){
-          $this->saldo-=120;    
+        if (($this->saldo-$this->tarifa) >= -211.84){
+          $this->saldo-=$this->tarifa;    
           return true;
         }
         else {
