@@ -3,7 +3,7 @@ namespace TrabajoSube;
 
 use PHPUnit\Framework\TestCase;
 
-class FranquiciasParcialesTest extends TestCase{
+class FranquiciaBEGTest extends TestCase{
     public function test2ViajesDiarios(){
         $tarjeta = new FranquiciaBEG();
         $tarjeta->$boletosDiarios = 0;
