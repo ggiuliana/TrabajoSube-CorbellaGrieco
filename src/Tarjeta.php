@@ -3,7 +3,6 @@ namespace TrabajoSube;
 
 class Tarjeta{
     public $saldo;
-    public $tarifa = 120;
     public $id;
     public $tipo = "normal";
     public $saldoPendiente;
@@ -47,7 +46,7 @@ class Tarjeta{
             return $this->tarifa;
         }
     }
-    public function cobrarBoleto() {
+    public function cobrarBoleto($tarifa) {
         $tarifa = $this->determinarTarifa();
         if ($tarifa !== null) {
             if ($this->saldo - $tarifa >= -211.84) {

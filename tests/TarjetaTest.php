@@ -17,19 +17,22 @@ class TarjetaTest extends TestCase{
 
     public function testCobrarBoletoConSaldo(){
         $tarjeta = new Tarjeta(200);
-        $this->assertTrue($tarjeta->cobrarBoleto());
+        $colectivo = new Colectivo(103);
+        $this->assertTrue($tarjeta->cobrarBoleto($colectivo->tarifa));
         $this->assertEquals(80, $tarjeta->saldo);
     }
 
     public function testCobrarBoletoSinSaldo() {
         $tarjeta = new Tarjeta(-100);
-        $this->assertFalse($tarjeta->cobrarBoleto());
+        $colectivo = new Colectivo(103);
+        $this->assertFalse($tarjeta->cobrarBoleto($colectivo->tarifa));
         $this->assertEquals(-100, $tarjeta->saldo);
     }
 
     public function testViajePlus(){
         $tarjeta = new Tarjeta(20);
-        $this->assertTrue($tarjeta->cobrarBoleto());
+        $colectivo = new Colectivo(103);
+        $this->assertTrue($tarjeta->cobrarBoleto($colectivo->tarifa));
         $this->assertEquals(-100, $tarjeta->saldo);
     }
 
@@ -51,21 +54,24 @@ class TarjetaTest extends TestCase{
     public function testSinDescuento(){
         $tarjeta = new Tarjeta(200);
         $tarjeta->viajes=2;
-        $tarjeta->cobrarBoleto();
+        $colectivo = new Colectivo(103);
+        $tarjeta->cobrarBoleto($colectivo->tarifa);
         $this->assertEquals(80, $tarjeta->saldo);
     }
 
     public function test20DeDescuento(){
         $tarjeta = new Tarjeta(200);
         $tarjeta->viajes=35;
-        $tarjeta->cobrarBoleto();
+        $colectivo = new Colectivo(103);
+        $tarjeta->cobrarBoleto($colectivo->tarifa);
         $this->assertEquals(104, $tarjeta->saldo);
     }
 
     public function test25DeDescuento(){
         $tarjeta = new Tarjeta(200);
         $tarjeta->viajes=90;
-        $tarjeta->cobrarBoleto();
+        $colectivo = new Colectivo(103);
+        $tarjeta->cobrarBoleto($colectivo->tarifa);
         $this->assertEquals(110, $tarjeta->saldo);
     }
 }
