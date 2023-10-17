@@ -1,5 +1,8 @@
 <?php
 namespace TrabajoSube;
+interface TiempoInterface{
+    public function tiempo();
+}
 
 class TiempoFalso implements TiempoInterface {
 
