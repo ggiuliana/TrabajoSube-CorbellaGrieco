@@ -8,14 +8,12 @@ class BoletoTest extends TestCase{
         $tarjeta = new Tarjeta(120);
         $colectivo = new Colectivo(128);
         $boleto = $colectivo->pagarCon($tarjeta);
-
         $this->assertEquals($boleto->getTipo(), "normal");
     }
     public function testFranquiciasCompletas() {
         $tarjeta = new FranquiciasCompletas();
         $colectivo = new Colectivo(128);
         $boleto = $colectivo->pagarCon($tarjeta);
-
         $this->assertEquals($boleto->getTipo(), "completa");
     }
     public function testFranquiciasParciales() {

@@ -32,22 +32,22 @@ class Tarjeta{
         }
     }
 
-    private function determinarTarifa() {
+    private function determinarTarifa($tarifa) {
         if ($this->fechaUltimoBoleto == date("m/Y")) {
             if ($this->viajes < 30) {
-                return $this->tarifa;
+                return $tarifa;
             } elseif ($this->viajes < 80) {
-                return $this->tarifa * 0.8;
+                return $tarifa * 0.8;
             } else {
-                return $this->tarifa * 0.75;
+                return $tarifa * 0.75;
             }
         }else{
             $this->viajes = 0;
-            return $this->tarifa;
+            return $tarifa;
         }
     }
     public function cobrarBoleto($tarifa) {
-        $tarifa = $this->determinarTarifa();
+        $tarifa = $this->determinarTarifa($tarifa);
         if ($tarifa !== null) {
             if ($this->saldo - $tarifa >= -211.84) {
                 $this->saldo -= $tarifa;
