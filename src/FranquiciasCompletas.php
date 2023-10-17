@@ -2,6 +2,6 @@
 namespace TrabajoSube;
 
 class FranquiciasCompletas extends Tarjeta{
-    public $tarifa = 0;
+    public $porcentajeTarifa = 0; // 100%
     public $tipo = "completa";
 }
