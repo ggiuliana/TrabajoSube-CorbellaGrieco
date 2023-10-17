@@ -13,6 +13,10 @@ class TiempoFalso implements TiempoInterface {
         $this->tiempo += $segundos;
     }
 
+    public function retroceder($dias){
+        $this->tiempo -= (60*60*24*$dias);
+    }
+
     public function tiempofalso(){
         return $this->tiempo;
     }
