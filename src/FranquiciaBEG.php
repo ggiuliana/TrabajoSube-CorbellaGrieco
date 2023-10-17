@@ -6,6 +6,8 @@ class FranquiciaBEG extends FranquiciasCompletas{
     public $boletosDiarios = 2;
 
     function __construct($saldo = 0, $id = 0){
+        $this->saldo = $saldo;
+        $this->id = $id;
         $this->ultimoBoleto = time();
     }
     public function cobrarBoleto($tarifa){

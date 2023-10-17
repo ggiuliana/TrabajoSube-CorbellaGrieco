@@ -8,7 +8,9 @@ class FranquiciasParciales extends Tarjeta{
     public $boletosDiarios = 4; 
 
     function __construct($saldo = 0, $id =0){
-    $this->ultimoBoleto = time()-300;
+        $this->saldo = $saldo;
+        $this->id = $id;
+        $this->ultimoBoleto = time()-300;
     }
 
     public function cobrarBoleto($tarifa){
