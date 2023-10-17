@@ -74,4 +74,13 @@ class TarjetaTest extends TestCase{
         $tarjeta->cobrarBoleto($colectivo->tarifa);
         $this->assertEquals(110, $tarjeta->saldo);
     }
+    public function testResetViajes(){
+        $tarjeta = new Tarjeta(200);
+        $tiempoFalso = new TiempoFalso;
+        $tarjeta->viajes=20;
+        $tarjeta->fechaUltimoBoleto = $tiempoFalso->retroceder(30);
+        $colectivo = new Colectivo(103);
+        $tarjeta->cobrarBoleto($colectivo->tarifa);
+        $this->assertEquals(1, $tarjeta->viajes);
+    }
 }
