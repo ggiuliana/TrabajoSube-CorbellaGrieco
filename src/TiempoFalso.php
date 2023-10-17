@@ -17,7 +17,7 @@ class TiempoFalso implements TiempoInterface {
         $this->tiempo -= (60*60*24*$dias);
     }
 
-    public function tiempofalso(){
+    public function tiempo(){
         return $this->tiempo;
     }
 }
